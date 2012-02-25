@@ -276,5 +276,3 @@ function setBackground($string) {
 	// Apply the replacement!
 	return preg_replace('/(\.body-images( )?\{)([^\{\}]+)(\})/i', '$1'.$css.'$4', $string);
 }
-
-?>

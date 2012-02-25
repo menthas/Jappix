@@ -163,5 +163,3 @@ if($use_curl)
 	curl_close($connection);
 else
 	@fclose($connection);
-
-?>

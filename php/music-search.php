@@ -99,5 +99,3 @@ if((isset($_GET['searchquery']) && !empty($_GET['searchquery'])) && (isset($_GET
 	// Return the path to the file
 	exit($xml);
 }
-
-?>

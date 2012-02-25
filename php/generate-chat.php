@@ -231,5 +231,3 @@ if(isset($_POST['content']) && isset($_POST['xid']) && !empty($_POST['xid']) && 
 	// Return to the user the generated file ID
 	exit($filename);
 }
-
-?>

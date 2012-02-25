@@ -146,6 +146,28 @@ function read_url($url) {
 	return $data;
 }
 
+// The function tries to determine the mime type of a file
+function getMimeType($file_path, $is_image = false) {
+	$mtype = false;
+	
+	if (function_exists('finfo_file')) {
+		$finfo = finfo_open(FILEINFO_MIME);
+		$mtype = finfo_file($finfo, $file_path);
+		finfo_close($finfo);
+	} else if (function_exists('mime_content_type')){
+		$mtype = mime_content_type($file_path);
+	} else if ($is_image) {
+		$info = getimagesize($file_path);
+		$mtype = $info['mime'];
+	} else if (php_uname('s') == 'Linux' || php_uname('s') == 'FreeBSD') {
+		$info = exec('file -b --mime-type ' . escapeshellarg($file_path), $t, $rc);
+		if ($rc === 0 && $info)
+			$mtype = $info;
+	}
+	
+	return $mtype;
+}
+
 // The function to get the Jappix app. current version
 function getVersion() {
 	$file = file_get_contents(JAPPIX_BASE.'/VERSION');
@@ -801,7 +823,7 @@ function isDeveloper() {
 
 // The function to get a file extension
 function getFileExt($name) {
-	return strtolower(preg_replace('/^(.+)(\.)([^\.]+)$/i', '$3', $name));
+	return strtolower(pathinfo($name, PATHINFO_EXTENSION));
 }
 
 // The function to get a file type
@@ -948,15 +970,6 @@ function getFileType($ext) {
 	}
 	
 	return $file_type;
-}
-
-// The function to get the MIME type of a file
-function getFileMIME($path) {
-	$finfo = finfo_open(FILEINFO_MIME_TYPE);
-	$cmime = finfo_file($finfo, $path);
-	finfo_close($finfo);
-	
-	return $cmime;
 }
 
 // The function to keep the current GET vars
@@ -1423,5 +1436,3 @@ function resizeImage($path, $ext, $width, $height) {
 		return false;
 	}
 }
-
-?>

@@ -180,7 +180,7 @@ if($file && $type) {
 	// We can read the file(s)
 	if($continue) {
 		// We get the file MIME type
-		$mime = strtolower(preg_replace('/(^)(.+)(\.)(.+)($)/i', '$4', $file));
+		$mime = getFileExt($file);
 		
 		// We set up a known MIME type (and some other headers)
 		if(($type == 'css') || ($type == 'js')) {
@@ -208,7 +208,7 @@ if($file && $type) {
 		
 		// Catch the file MIME type
 		else
-			header('Content-Type: '.getFileMIME($path));
+			header('Content-Type: '.getMimeType($path));
 		
 		// Read the text file(s) (CSS & JS)
 		if(($type == 'css') || ($type == 'js')) {
@@ -336,5 +336,3 @@ if($file && $type) {
 // The request is not correct
 header('Status: 400 Bad Request', true, 400);
 exit('HTTP/1.1 400 Bad Request');
-
-?>

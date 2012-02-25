@@ -39,5 +39,3 @@ if((isset($_GET['latitude']) && !empty($_GET['latitude'])) && (isset($_GET['long
 	
 	exit($xml);
 }
-
-?>

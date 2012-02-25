@@ -121,5 +121,3 @@ switch($notice_conf['type']) {
 		
 		break;
 }
-
-?>

@@ -25,5 +25,3 @@ $music_album = '';
 // Current store folders
 $share_folder = 'share';
 $music_folder = 'music';
-
-?>

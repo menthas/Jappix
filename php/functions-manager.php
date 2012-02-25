@@ -765,5 +765,3 @@ function writeNotice($type, $simple) {
 	// Write this data
 	writeXML('conf', 'notice', $xml);
 }
-
-?>

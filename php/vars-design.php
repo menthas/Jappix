@@ -45,5 +45,3 @@ $notice_text = '';
 
 // Current background folder
 $backgrounds_folder = 'backgrounds';
-
-?>

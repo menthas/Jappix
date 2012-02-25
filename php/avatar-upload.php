@@ -54,11 +54,8 @@ $filename = md5($old_filename.time()).$ext;
 // Define some vars
 $path = JAPPIX_BASE.'/store/avatars/'.$filename;
 
-// Define MIME type
-if($ext == 'jpg')
-	$ext = 'jpeg';
-
-$mime = 'image/'.$ext;
+// get the MIME type
+$mime = getMimeType($tmp_filename, true);
 
 // Unsupported file extension?
 if(!preg_match('/^(jpeg|png|gif)$/i', $ext))
@@ -114,5 +111,3 @@ exit(
 	<error>service-unavailable</error>
 </jappix>'
 );
-
-?>

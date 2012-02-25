@@ -33,5 +33,3 @@ $https_force = htmlspecialchars(HTTPS_FORCE);
 $compression = htmlspecialchars(COMPRESSION);
 $multi_files = htmlspecialchars(MULTI_FILES);
 $developer = htmlspecialchars(DEVELOPER);
-
-?>

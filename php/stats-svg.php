@@ -102,5 +102,3 @@ if(!$drawsvgchart->has_errors()) {
 	header('Content-Type: image/svg+xml; charset=utf-8');
 	echo $drawsvgchart->getXMLOutput();
 }
-
-?>

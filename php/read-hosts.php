@@ -80,5 +80,3 @@ define('HOST_BOSH_MAIN', $hosts_conf['bosh_main']);
 define('HOST_BOSH_MINI', $hosts_conf['bosh_mini']);
 define('HOST_STATIC', $hosts_conf['static']);
 define('HOST_UPLOAD', $hosts_conf['upload']);
-
-?>

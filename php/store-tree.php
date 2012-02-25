@@ -47,5 +47,3 @@ for($i = 0; $i < count($store_folders); $i++) {
 	
 	file_put_contents($current.'/index.html', $security_html, LOCK_EX);
 }
-
-?>

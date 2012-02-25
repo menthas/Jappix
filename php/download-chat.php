@@ -49,5 +49,3 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isSafe($_GET['id'])) {
 	// We delete the stored log file
 	unlink($filepath);
 }
-
-?>

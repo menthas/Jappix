@@ -44,5 +44,3 @@ if($valid_user) {
 	// Reset the user name
 	$user_name = '';
 }
-
-?>
