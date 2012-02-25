@@ -1035,11 +1035,20 @@ function securityHTML() {
 
 // Checks if a relative server path is safe
 function isSafe($path) {
-	// Mhh, someone is about to nasty stuffs (previous folder, or executable scripts)
-	if(preg_match('/\.\.\//', $path) || preg_match('/index\.html?$/', $path) || preg_match('/(\.)((php([0-9]+)?)|(aspx?)|(cgi)|(rb)|(py)|(pl)|(jsp)|(ssjs)|(lasso)|(dna)|(tpl)|(smx)|(cfm))$/i', $path))
-		return false;
-	
-	return true;
+    // Mhh, someone is about to nasty stuffs (previous folder, or executable scripts)
+    if(false !== strpos($path, '/') || preg_match('/index\.html?$/', $path))
+        return false;
+
+    $bad_ext = array(
+        'php','aspx','cgi','rb','py','pl','jsp','ssjs','lasso','dna','tpl','smx','cfm'
+    );
+    $ext = getFileExt($path);
+
+    for($i=0,$c=count($bad_ext); $i<$c; $i++)
+        if (substr($ext, 0, strlen($bad_ext[$i])) == $bad_ext[$i])
+            return false;
+
+    return true;
 }
 
 // Set the good unity for a size in bytes
