@@ -1036,7 +1036,7 @@ function securityHTML() {
 // Checks if a relative server path is safe
 function isSafe($path) {
     // Mhh, someone is about to nasty stuffs (previous folder, or executable scripts)
-    if(false !== strpos($path, '/') || preg_match('/index\.html?$/', $path))
+    if(false !== strpos($path, '../') || preg_match('/index\.html?$/', $path))
         return false;
 
     $bad_ext = array(
